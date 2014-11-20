@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="res/css/pure-0.5.0/pure-min.css" />
+    <link rel="stylesheet" href="res/css/styles.css" />
+    <style type="text/css">
+ 
+    </style>
+    <script src="res/js/promise.min.js"></script>
+    <script>
+    'use strict';
+    var DIR = {};
+    function init() {
+        promise.get('/content/_dir.json').then(function(error, text, xhr) {
+            if (error) {
+                alert('Error ' + xhr.status);
+                return;
+            }
+            //alert('The page contains ' + text.length + ' character(s).');
+            //alert('data was:' + text);
+            DIR = JSON.parse(text);
+            console.dir(DIR);
+        });        
+    }
+    </script>
+    
+  </head>
+<body onload="init()">
+
+<h1>main site</h1>
+
+<p>This is the main site</p>
+
+</body>
+</html>
