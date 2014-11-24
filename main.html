@@ -1,17 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="res/css/pure-0.5.0/pure-min.css" />
+    <link rel="stylesheet" href="res/css/pure-0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="res/css/styles.css" />
     <style type="text/css">
- 
+      div#mnu {text-align:center;}
+      div.c{ border:1px solid silver;}
+      div#hdr .c1 {font-size:2em;}
+      div#home .c21-1 {font-size:0.7em;line-height:1.8;}
+
+      div#ss_container {
+        position:relative;
+      }
+
+      div#ss_container div {
+        position:absolute;
+        /*
+        -webkit-opacity: 1; 
+        -moz-opacity: 1; 
+        opacity: 1; 
+        */
+        
+        -webkit-transition: opacity 1s; 
+        -moz-transition: opacity 1s; 
+        -ms-transition: opacity 1s; 
+        -o-transition: opacity 1s; 
+        transition: opacity 1s;           
+      }
+
+      .ss-transp {
+        -webkit-opacity: 0; 
+        -moz-opacity: 0; 
+        opacity: 0;           
+      }
+         
     </style>
     <script src="res/js/promise.min.js"></script>
     <script>
     'use strict';
+    
     var DIR = {};
     function init() {
+        /*
         promise.get('/content/_dir.json').then(function(error, text, xhr) {
             if (error) {
                 alert('Error ' + xhr.status);
@@ -22,15 +55,111 @@
             DIR = JSON.parse(text);
             console.dir(DIR);
         });        
+        */
+        ssColl = document.getElementById('ss_container').getElementsByTagName('div');
     }
+    
+    
+    var ssIndex = 0;
+    var ssColl = null;
+    function ssRot() {
+       ssColl[ssIndex].classList.add('ss-transp');
+       ssIndex = ++ssIndex % ssColl.length;
+       ssColl[ssIndex].classList.remove('ss-transp');
+    }
+    window.setInterval(ssRot,2000);
     </script>
     
   </head>
 <body onload="init()">
 
-<h1>main site</h1>
 
-<p>This is the main site</p>
+<div id="hdr" class="pure-g">
+  <div class="pure-u-1 pure-u-md-3-5">
+    <div class="c c1">
+      Lateinprofessor des Hampden-Sydney
+    </div><!-- c1 -->
+  </div>
+  <div class="pure-u-1 pure-u-md-2-5">
+    <div class="c c2">
+      <div>address of the place we are in, city state</div>
+      <div>email facebook</div>
+    </div><!-- c2 -->
+  </div>
+</div><!-- #hdr -->
+
+<div id="mnu" class="pure-menu pure-menu-open pure-menu-horizontal">
+  <ul>
+    <li><a href="#">The program</a></li>
+    <li class="pure-menu-selected"><a href="#">Our People</a></li>
+    <li><a href="#">Activities</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Apply</a></li>
+  </ul>
+</div><!-- #mnu -->  
+
+<div id="home">
+  <div class="pure-g"><!-- r1 -->
+    <div class="pure-u-1 pure-u-md-1-3">
+      <div class="c">
+        <img src="res/img/freshcuts.jpg" class="pure-img" />          
+       
+      </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-3">
+      <div class="c">
+        <div style="font-size:1.2em;">
+SUTTER MEATS IS A HUSBAND AND WIFE TEAM DEDICATED TO PRESERVING THE CRAFT OF TRADITIONAL BUTCHERY AND TO NARROWING THE GAP BETWEEN THE EATER & THEIR FOOD SOURCE
+        </div>
+        <div style="font-size:0.7em;line-height:1.8;">
+We work directly with family farms to provide locally and sustainably-raised meat to the Pioneer Valley. To honor the effort and care our farmers put into raising their livestock, we are committed to using the whole animal by serving not only fresh cuts of meat, but also an assortment of sausages, charcuterie, deli meats, smoked meats and stocks; all made in house. We are dedicated to providing residents of our community with an opportunity to savor the bounty of humanely-raised meat from neighboring farms. We believe that a happy and healthy animal raised in its natural environment makes for better tasting, fuller-flavored meat.      
+        </div>
+      </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-3">
+      <div class="c">
+        <div id="ss_container">
+          <div class="ss-item" style="position:relative;"><img src="res/img/ss/ss1.jpg" class="pure-img" /></div>
+          <div class="ss-item ss-transp"><img src="res/img/ss/ss2.jpg" class="pure-img" /></div>
+          <div class="ss-item ss-transp"><img src="res/img/ss/ss3.jpg" class="pure-img" /></div>
+        </div> 
+      </div>
+    </div> 
+  </div><!-- r1 -->
+  
+  <div class="pure-g"><!-- r2 -->
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="c c21">
+        <div class="c21-1">
+The Youth Program that was originally initiated by a group of parents in an effort to create a 
+medium that would allow our youth to balance their Islamic values while facing the challenges 
+of today's environment. This program had its humble beginnings in the Spring of 2011 in the 
+home of one of the parents, and Alhamdulillah in November 2011 moved into it's current location 
+at Masjid AlHuda, where it now benefits many Junior High and High School youth from our community.        
+        </div><!-- c21-1 -->
+        <div class="c21-2">
+        
+        </div><!-- c21-2 -->        
+      </div><!-- c21 -->
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="c c22">
+          right home 2
+      </div><!-- c22 -->
+    </div>
+  </div><!-- r2 -->
+</div><!-- #home -->
+
+<div id="room" class="pure-g">
+</div><!-- #room -->    
+
+<div id="ftr" class="pure-g">
+  <div class="pure-u-1">
+    <div class="c c1">
+    footer
+    </div><!-- c1 -->
+  </div>
+</div><!-- #ftr -->
 
 </body>
 </html>
