@@ -18,12 +18,7 @@
 
       div#ss_container div {
         position:absolute;
-        /*
-        -webkit-opacity: 1; 
-        -moz-opacity: 1; 
-        opacity: 1; 
-        */
-        
+        top:0;left:0;
         -webkit-transition: opacity 1s; 
         -moz-transition: opacity 1s; 
         -ms-transition: opacity 1s; 
@@ -36,7 +31,7 @@
         -moz-opacity: 0; 
         opacity: 0;           
       }
-         
+
     </style>
     <script src="res/js/promise.min.js"></script>
     <script>
@@ -102,8 +97,12 @@
   <div class="pure-g"><!-- r1 -->
     <div class="pure-u-1 pure-u-md-1-3">
       <div class="c">
-        <img src="res/img/freshcuts.jpg" class="pure-img" />          
-       
+                 
+        <div id="ss_container">
+          <div class="ss-item" stylex="position:relative;"><img src="res/img/ss/ss1.jpg" class="pure-img" /></div>
+          <div class="ss-item ss-transp"><img src="res/img/ss/ss2.jpg" class="pure-img" /></div>
+          <div class="ss-item ss-transp"><img src="res/img/ss/ss3.jpg" class="pure-img" /></div>
+        </div>         
       </div>
     </div>
     <div class="pure-u-1 pure-u-md-1-3">
@@ -118,11 +117,7 @@ We work directly with family farms to provide locally and sustainably-raised mea
     </div>
     <div class="pure-u-1 pure-u-md-1-3">
       <div class="c">
-        <div id="ss_container">
-          <div class="ss-item" style="position:relative;"><img src="res/img/ss/ss1.jpg" class="pure-img" /></div>
-          <div class="ss-item ss-transp"><img src="res/img/ss/ss2.jpg" class="pure-img" /></div>
-          <div class="ss-item ss-transp"><img src="res/img/ss/ss3.jpg" class="pure-img" /></div>
-        </div> 
+       <img src="res/img/freshcuts.jpg" class="pure-img" /> 
       </div>
     </div> 
   </div><!-- r1 -->
