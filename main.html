@@ -65,6 +65,51 @@
     window.setInterval(ssRot,2000);
     </script>
     
+    <script>
+      
+  var ss_index = 0;
+  var ss_coll = ['img1.jpg','img2.jpg','img3.jpg'];
+  var T = 0;
+  var ss;
+  var img0; 
+  
+  var FADE = 10; 
+  var DWELL = 15; // just show 
+  
+  
+  function init() {
+      ss = document.getElementById('ss');
+      img0 = document.getElementById('img0');       
+      window.setInterval(tick,100);
+  }
+  
+  function tick() {
+      if (T > (FADE + FADE + DWELL)) {
+          T = 0;
+      }
+      T++;      
+      if (T <= FADE) { 
+          //console.log(T + ' fade ' + ((FADE - T)/10));
+          ss.style.opacity = (FADE - T)/10;
+      }
+      if (T === FADE) { // swap
+          //console.log(T + ' swap ' + ss_index);
+          img0.src = ss_coll[ss_index];
+          ss_index = ++ss_index % ss_coll.length;
+      }
+      if (T > FADE && T <= FADE + FADE){
+          //console.log(T + ' unfade ' + ((T - FADE)/10));
+          ss.style.opacity = (T - FADE)/10;
+      }
+      if (T > FADE + FADE) { // dwell
+          //console.log(T + ' dwell ');
+      }
+  }      
+      
+      
+    </script>
+    
+    
   </head>
 <body onload="init()">
 
