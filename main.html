@@ -7,30 +7,36 @@
     <link rel="stylesheet" href="res/css/pure-0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="res/css/styles.css" />
     <style type="text/css">
-      div#mnu {text-align:center;}
-      div.c{ border:1px solid silver;}
-      div#hdr .c1 {font-size:2em;}
-      div#home .c21-1 {font-size:0.7em;line-height:1.8;}
+      body {margin:2px 14px 0 14px;}  
+      
+      div.c-1-1{padding:8px;border-style:none none none none;border-width:1px; border-color:silver;}
+      div.c-1-2{padding:12px;border-style:none solid none solid;border-width:1px; border-color:silver;}
+      div.c-1-3{padding:8px;border-style:none solid none none;border-width:1px; border-color:silver;}
+      div#hdr {}
+      div.hdr-h1 {} 
+      div.hdr-h2 {font-size:0.8em;color:gray;letter-spacing:1px;}
+      div.info-h1 {font-size:0.7em;text-align:right;letter-spacing:1.2px;margin-top:12px;}
+      div.info-h2 {font-size:0.7em;padding:6px 0 6px 0;text-align:right;letter-spacing:1.2px;font-style:italic;color:#484848;}
+      div.info-h3 {font-size:0.7em;text-align:right;font-weight:bold;color:#303030;}
+      div#mnu {font-size:0.9em;;text-align:center;margin:28px 0 18px 0;background-color:#91d1c4;border-radius:4px;}
+      div.bn-h1 {}
+      div.ue-h1 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;}
+      div.ue-img {}
+      div.ue-h2 {}
+      div.re-list {}
+      div.re-h1 {}
+      div.re-h2 {}
+      div.anct-h1 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;margin:8px 0 6px 0;}
+      div.anct-h2 {font-size:0.8em;font-style:italic;font-weight:bold;color:#660000;}
+      div.anct-h3 {font-size:0.7em;color:#606060;}
+      div.abt-h1 {font-weight:500;font-size:1.1em;letter-spacing:2px;line-height:1.2;color:teal;}
+      div.abt-h2 {font-family: Georgia,serif;font-size:0.8em;line-height:1.6;margin:8px 0 8px 0;color:#484848;}
+      div.abt-h3 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;margin:18px 0 6px 0;}
+      div.abt-list ul {padding:2px;margin: 4px;}
+      div.abt-list li {font-size:0.7em;letter-spacing:1.2px;line-height:1.4;color:#303030}
 
-      div#ss_container {
-        position:relative;
-      }
 
-      div#ss_container div {
-        position:absolute;
-        top:0;left:0;
-        -webkit-transition: opacity 1s; 
-        -moz-transition: opacity 1s; 
-        -ms-transition: opacity 1s; 
-        -o-transition: opacity 1s; 
-        transition: opacity 1s;           
-      }
 
-      .ss-transp {
-        -webkit-opacity: 0; 
-        -moz-opacity: 0; 
-        opacity: 0;           
-      }
 
     </style>
     <script src="res/js/promise.min.js"></script>
@@ -38,6 +44,16 @@
     'use strict';
     
     var DIR = {};
+    
+    
+    var ss_index = 0;
+    var ss_coll = ['res/img/ss/ss1.jpg','res/img/ss/ss2.jpg','res/img/ss/ss3.jpg'];
+    var T = 0;
+    var ss;
+    var img0; 
+    var FADE = 10; 
+    var DWELL = 50; // just show 
+    
     function init() {
         /*
         promise.get('/content/_dir.json').then(function(error, text, xhr) {
@@ -51,10 +67,15 @@
             console.dir(DIR);
         });        
         */
-        ssColl = document.getElementById('ss_container').getElementsByTagName('div');
+      ss = document.getElementById('ss_container');
+      img0 = document.getElementById('ss_img0');       
+      window.setInterval(tick,80);        
     }
     
     
+    
+    
+    /*
     var ssIndex = 0;
     var ssColl = null;
     function ssRot() {
@@ -63,25 +84,9 @@
        ssColl[ssIndex].classList.remove('ss-transp');
     }
     window.setInterval(ssRot,2000);
-    </script>
-    
-    <script>
+    */
       
-  var ss_index = 0;
-  var ss_coll = ['img1.jpg','img2.jpg','img3.jpg'];
-  var T = 0;
-  var ss;
-  var img0; 
-  
-  var FADE = 10; 
-  var DWELL = 15; // just show 
-  
-  
-  function init() {
-      ss = document.getElementById('ss');
-      img0 = document.getElementById('img0');       
-      window.setInterval(tick,100);
-  }
+
   
   function tick() {
       if (T > (FADE + FADE + DWELL)) {
@@ -116,78 +121,93 @@
 
 <div id="hdr" class="pure-g">
   <div class="pure-u-1 pure-u-md-3-5">
-    <div class="c c1">
-      Lateinprofessor des Hampden-Sydney
-    </div><!-- c1 -->
+    <div class="hdr-h1"><img src="res/img/alhuda-logo1.png" class="pure-img" /></div>
+    <div class="hdr-h2">Youth Programs at Masjid Al-Huda, for boys 9 and older and girls 12 and older.</div>
   </div>
   <div class="pure-u-1 pure-u-md-2-5">
-    <div class="c c2">
-      <div>address of the place we are in, city state</div>
-      <div>email facebook</div>
-    </div><!-- c2 -->
+     <div class="info-h1">Masjid Al-Huda, 1081 W Irving Park Rd, Schaumburg IL</div>
+     <div class="info-h2">5–6 pm, Wed and Fri (boys), Fri (girls)</div>
+     <div class="info-h3">info@alhudayouthprogram.com facebook</div>
   </div>
 </div><!-- #hdr -->
 
 <div id="mnu" class="pure-menu pure-menu-open pure-menu-horizontal">
   <ul>
     <li><a href="#">The program</a></li>
-    <li class="pure-menu-selected"><a href="#">Our People</a></li>
+    <li class="pure-menu-selected"><a href="#">Our Teachers</a></li>
     <li><a href="#">Activities</a></li>
     <li><a href="#">Contact</a></li>
-    <li><a href="#">Apply</a></li>
+    <li><a href="#">Join</a></li>
   </ul>
 </div><!-- #mnu -->  
 
 <div id="home">
   <div class="pure-g"><!-- r1 -->
     <div class="pure-u-1 pure-u-md-1-3">
-      <div class="c">
-                 
+      <div class="c-1-1">
+        <div class="bn-h1"></div>
+        <div class="ue-h1">Upcoming Event</div>
+        <div class="ue-img"><img src="res/img/ue1.jpg" class="pure-img" /></div>
+        <div class="ue-h2"></div>
+        <div class="re-list">
+          <div class="re-h1"></div>
+          <div class="re-h2"></div>
+        </div>
+        
+      </div><!-- c-1-1 -->
+    </div>
+    
+    <div class="pure-u-1 pure-u-md-1-3 ">
+      <div class="c-1-2">
+          
         <div id="ss_container">
-          <div class="ss-item" stylex="position:relative;"><img src="res/img/ss/ss1.jpg" class="pure-img" /></div>
-          <div class="ss-item ss-transp"><img src="res/img/ss/ss2.jpg" class="pure-img" /></div>
-          <div class="ss-item ss-transp"><img src="res/img/ss/ss3.jpg" class="pure-img" /></div>
-        </div>         
-      </div>
-    </div>
-    <div class="pure-u-1 pure-u-md-1-3">
-      <div class="c">
-        <div style="font-size:1.2em;">
-SUTTER MEATS IS A HUSBAND AND WIFE TEAM DEDICATED TO PRESERVING THE CRAFT OF TRADITIONAL BUTCHERY AND TO NARROWING THE GAP BETWEEN THE EATER & THEIR FOOD SOURCE
+          <img id="ss_img0" src="res/img/ss/ss1.jpg" class="pure-img" />
+        </div>           
+          
+        <div class="anct-h1">Announcements</div>
+        <div class="anct-list">
+<div class="anct-h2">Maintaining a Muslim Identity: Workshop By Sh. Hisham Al-Qaisi</div>
+<div class="anct-h3">Assalamu Alaikum, We have another important event coming up this Friday, Nov 14th....</div>
+<div class="anct-h2">Restoration Workday: A Very Productive Event!</div>
+<div class="anct-h3">Assalamu Alaikum, Sunday's Restoration Workday was quite a work out for all the ...</div>
+<div class="anct-h2">Dupate County Restoration Workday/Talk by Suhaib Quadri</div>
+<div class="anct-h3">Assalamu Alaikum, Inshallah our Youth Program has registered to volunteer for "R...</div>
+<div class="anct-h2">Mufti Kamani's Talk</div>
+<div class="anct-h3">We are Alhamdulillah very excited to inform you that on Friday Oct 17, Mufti Hussai...   </div>    
         </div>
-        <div style="font-size:0.7em;line-height:1.8;">
-We work directly with family farms to provide locally and sustainably-raised meat to the Pioneer Valley. To honor the effort and care our farmers put into raising their livestock, we are committed to using the whole animal by serving not only fresh cuts of meat, but also an assortment of sausages, charcuterie, deli meats, smoked meats and stocks; all made in house. We are dedicated to providing residents of our community with an opportunity to savor the bounty of humanely-raised meat from neighboring farms. We believe that a happy and healthy animal raised in its natural environment makes for better tasting, fuller-flavored meat.      
-        </div>
-      </div>
+      </div><!-- c-1-2 -->
     </div>
+    
     <div class="pure-u-1 pure-u-md-1-3">
-      <div class="c">
-       <img src="res/img/freshcuts.jpg" class="pure-img" /> 
-      </div>
+      <div class="c-1-3">
+        <div class="abt-h1">
+The Youth Program aims to create a medium that will allow our youth to balance their Islamic values while facing the challenges 
+of today's environment. 
+        </div>
+        <div class="abt-h2">
+The program was intiated by a group of parents, and had its humble beginnings in the Spring of 2011 in the 
+home of one of the parents, and Alhamdulillah in November 2011 moved into it's current location 
+at Masjid AlHuda, where it now benefits many Junior High and High School youth from our community.
+        </div>
+        <div class="abt-h3">Objectives of the program:</div>
+        <div class="abt-list">
+          <ul>
+            <li>Gain practical knowledge of Islam from a qualified teacher in a fun environment.</li>
+            <li>Provide our youth with a big brother / big sister mentor figure.</li>
+            <li>Strenghten the brotherhood and sisterhood bond among our youth through sports and other team building activities.</li>
+            <li>Islamically guide and personally help our youth on issues they face in life.</li>
+            <li>Program Days : Wednesdays and Fridays for boys, Fridays for girls</li>
+            <li>Program Timings : 5:00 – 6:00 pm</li>
+            <li>Program Fees : $30 per month for boys, $15 per month for girls</li>
+            <li>Instructors for boys : Mawlana Asif Uddin (Age 13 and above), Brother Farhan Ahmed (Age 9 to 12)</li>
+            <li>Instructor for girls : Sister Sabaahath Latifi</li>
+          </ul>    
+        </div>
+        
+      </div><!-- c-1-3 -->
     </div> 
   </div><!-- r1 -->
-  
-  <div class="pure-g"><!-- r2 -->
-    <div class="pure-u-1 pure-u-md-1-2">
-      <div class="c c21">
-        <div class="c21-1">
-The Youth Program that was originally initiated by a group of parents in an effort to create a 
-medium that would allow our youth to balance their Islamic values while facing the challenges 
-of today's environment. This program had its humble beginnings in the Spring of 2011 in the 
-home of one of the parents, and Alhamdulillah in November 2011 moved into it's current location 
-at Masjid AlHuda, where it now benefits many Junior High and High School youth from our community.        
-        </div><!-- c21-1 -->
-        <div class="c21-2">
-        
-        </div><!-- c21-2 -->        
-      </div><!-- c21 -->
-    </div>
-    <div class="pure-u-1 pure-u-md-1-2">
-      <div class="c c22">
-          right home 2
-      </div><!-- c22 -->
-    </div>
-  </div><!-- r2 -->
+
 </div><!-- #home -->
 
 <div id="room" class="pure-g">
@@ -195,9 +215,9 @@ at Masjid AlHuda, where it now benefits many Junior High and High School youth f
 
 <div id="ftr" class="pure-g">
   <div class="pure-u-1">
-    <div class="c c1">
+    <div class="ftr-cont">
     footer
-    </div><!-- c1 -->
+    </div><!-- ftr-cont -->
   </div>
 </div><!-- #ftr -->
 
