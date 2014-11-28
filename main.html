@@ -7,36 +7,52 @@
     <link rel="stylesheet" href="res/css/pure-0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="res/css/styles.css" />
     <style type="text/css">
-      body {margin:2px 14px 0 14px;}  
+      body {margin:12px 48px 4px 48px;}  
       
-      div.c-1-1{padding:8px;border-style:none none none none;border-width:1px; border-color:silver;}
+      div.c-1-1{padding:8px;border-width:1px; border-color:silver;}
       div.c-1-2{padding:12px;border-style:none solid none solid;border-width:1px; border-color:silver;}
-      div.c-1-3{padding:8px;border-style:none solid none none;border-width:1px; border-color:silver;}
+      div.c-1-3{padding:8px;border-width:1px; border-color:silver;}
+      
+      div.G-H1 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;}
+      /*div.G-H1::before {content:"*";color:teal;background-color:teal;margin-right:8px;}*/
+      div.G-HR1 {text-align:center;font-size:1.2em;letter-spacing:1.2px;vertical-align:middle;margin-bottom:8px;}
+      div.G-HR1::before {content:'........'}
+      div.G-JMP {font-size:0.8em;font-weight:bold;text-align:center;color:#990000;}
+      
       div#hdr {}
       div.hdr-h1 {} 
       div.hdr-h2 {font-size:0.8em;color:gray;letter-spacing:1px;}
-      div.info-h1 {font-size:0.7em;text-align:right;letter-spacing:1.2px;margin-top:12px;}
-      div.info-h2 {font-size:0.7em;padding:6px 0 6px 0;text-align:right;letter-spacing:1.2px;font-style:italic;color:#484848;}
-      div.info-h3 {font-size:0.7em;text-align:right;font-weight:bold;color:#303030;}
+      div.info-h1 {font-size:0.7em;font-weight:bold;text-align:right;letter-spacing:1.2px;margin-top:12px;}
+      div.info-h1 a {text-decoration:none;color:#990000;}
+      div.info-h1 a:hover {text-decoration:underline;}
+      div.info-h2 {font-size:0.7em;text-align:right;color:#303030;letter-spacing:1px;margin-top:8px;}
+      div.info-h2 a {text-decoration:none;color:#303030;}
+      div.info-h2 a:hover {text-decoration:underline;}
+      div.info-h3 {font-size:0.7em;padding:6px 0 6px 0;text-align:right;letter-spacing:1.2px;font-style:italic;color:#484848;}
+      div.info-h4 {font-size:0.7em;text-align:right;font-weight:bold;color:#303030;}
       div#mnu {font-size:0.9em;;text-align:center;margin:28px 0 18px 0;background-color:#91d1c4;border-radius:4px;}
       div.bn-h1 {}
-      div.ue-h1 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;}
+      div.ue-h1 {}
       div.ue-img {}
-      div.ue-h2 {}
+      div#ss_caption {font-size:0.7em;text-align:right;color:#303030;}
+      div.ue-h2 {text-align:center;font-size:0.7em;letter-spacing:1.4px;line-height:0.8;color:#484848;margin-bottom:18px;}
+      div.ue-h2 p:first-child {font-weight:bold;font-size:0.8rem;color:#990000;}
       div.re-list {}
       div.re-h1 {}
       div.re-h2 {}
-      div.anct-h1 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;margin:8px 0 6px 0;}
-      div.anct-h2 {font-size:0.8em;font-style:italic;font-weight:bold;color:#660000;}
-      div.anct-h3 {font-size:0.7em;color:#606060;}
-      div.abt-h1 {font-weight:500;font-size:1.1em;letter-spacing:2px;line-height:1.2;color:teal;}
-      div.abt-h2 {font-family: Georgia,serif;font-size:0.8em;line-height:1.6;margin:8px 0 8px 0;color:#484848;}
-      div.abt-h3 {font-size:0.8em;font-weight:bold;font-style:italic;letter-spacing:2px;color:teal;margin:18px 0 6px 0;}
-      div.abt-list ul {padding:2px;margin: 4px;}
-      div.abt-list li {font-size:0.7em;letter-spacing:1.2px;line-height:1.4;color:#303030}
+      div.re-h3 {}
+      div.anct-h1 {margin:8px 0 6px 0;}
+      div.anct-h2 {font-size:0.8em;font-style:italic;font-weight:bold;color:#660000;text-align:center;}
+      div.anct-h3 {font-size:0.7em;color:#606060;margin-bottom:18px;}
+      div.abt-h1 {font-weight:500;font-size:1.1em;letter-spacing:2px;line-height:1.2;color:teal;background-colorx:#99ffff;padding:4px;}
+      div.abt-h2 {font-family: Georgia,serif;font-size:0.8em;line-height:1.4;margin:4px 0 8px 0;color:#484848;text-indent:12px;}
+      div.abt-h3 {margin:18px 0 6px 0;}
+      div.abt-list ul {padding:2px;margin:4px;list-style:disc inside;}
+      div.abt-list li {font-size:0.7em;letter-spacing:1.2px;line-height:1.4;margin-bottom:8px;color:#303030;}
 
-
-
+      div#ftr {font-size:0.9em;text-align:center;margin:28px 0 18px 0;background-color:#91d1c4;border-radius:4px;}
+      div.ftr-cont a {text-decoration:none;color:#990000;}
+      div.ftr-cont a:hover {text-decoration:underline;}
 
     </style>
     <script src="res/js/promise.min.js"></script>
@@ -47,10 +63,15 @@
     
     
     var ss_index = 0;
-    var ss_coll = ['res/img/ss/ss1.jpg','res/img/ss/ss2.jpg','res/img/ss/ss3.jpg'];
+    var ss_coll = [
+      ['res/img/ss/ss1.jpg','Raafay with a black crappie'],
+      ['res/img/ss/ss2.jpg','Mizbah and a Busse carp'],
+      ['res/img/ss/ss3.jpg','Raafay and a Barth Pond channel cat']
+    ];
     var T = 0;
     var ss;
     var img0; 
+    var ssCaption;
     var FADE = 10; 
     var DWELL = 50; // just show 
     
@@ -69,24 +90,9 @@
         */
       ss = document.getElementById('ss_container');
       img0 = document.getElementById('ss_img0');       
+      ssCaption = document.getElementById('ss_caption'); 
       window.setInterval(tick,80);        
     }
-    
-    
-    
-    
-    /*
-    var ssIndex = 0;
-    var ssColl = null;
-    function ssRot() {
-       ssColl[ssIndex].classList.add('ss-transp');
-       ssIndex = ++ssIndex % ssColl.length;
-       ssColl[ssIndex].classList.remove('ss-transp');
-    }
-    window.setInterval(ssRot,2000);
-    */
-      
-
   
   function tick() {
       if (T > (FADE + FADE + DWELL)) {
@@ -94,20 +100,17 @@
       }
       T++;      
       if (T <= FADE) { 
-          //console.log(T + ' fade ' + ((FADE - T)/10));
           ss.style.opacity = (FADE - T)/10;
       }
       if (T === FADE) { // swap
-          //console.log(T + ' swap ' + ss_index);
-          img0.src = ss_coll[ss_index];
+          img0.src = ss_coll[ss_index][0];
+          ssCaption.innerText = ss_coll[ss_index][1];
           ss_index = ++ss_index % ss_coll.length;
       }
       if (T > FADE && T <= FADE + FADE){
-          //console.log(T + ' unfade ' + ((T - FADE)/10));
           ss.style.opacity = (T - FADE)/10;
       }
       if (T > FADE + FADE) { // dwell
-          //console.log(T + ' dwell ');
       }
   }      
       
@@ -121,20 +124,24 @@
 
 <div id="hdr" class="pure-g">
   <div class="pure-u-1 pure-u-md-3-5">
-    <div class="hdr-h1"><img src="res/img/alhuda-logo1.png" class="pure-img" /></div>
+    <div class="hdr-h1"><a href="#"><img src="res/img/alhuda-logo1.png" class="pure-img" alt="Al-Huda Youth Program" title="Click to go to the Al-Huda Youth Program home page" /></a></div>
     <div class="hdr-h2">Youth Programs at Masjid Al-Huda, for boys 9 and older and girls 12 and older.</div>
   </div>
   <div class="pure-u-1 pure-u-md-2-5">
-     <div class="info-h1">Masjid Al-Huda, 1081 W Irving Park Rd, Schaumburg IL</div>
-     <div class="info-h2">5–6 pm, Wed and Fri (boys), Fri (girls)</div>
-     <div class="info-h3">info@alhudayouthprogram.com facebook</div>
+     <div class="info-h1"><a href="https://goo.gl/maps/ZLGDa">Masjid Al-Huda, 1081 W Irving Park, Schaumburg IL</a></div>
+     <div class="info-h2"><a href="mailto:info@alhudayouthprogram.org">INFO@ALHUDAYOUTHPROGRAM.ORG</a> |
+       <a href="https://www.facebook.com/pages/Alhuda-Youth-Program/1471242616483881">FACEBOOK</a>
+     </div>
+     <div class="info-h3">5–6 pm / Wed, Fri (boys) / Fri (girls)</div>
   </div>
 </div><!-- #hdr -->
 
 <div id="mnu" class="pure-menu pure-menu-open pure-menu-horizontal">
   <ul>
-    <li><a href="#">The program</a></li>
-    <li class="pure-menu-selected"><a href="#">Our Teachers</a></li>
+    <li class="pure-menu-selected"><a href="#">Home</a></li>
+    <li><a href="#">The Program</a></li>
+    <li><a href="#">Our Teachers</a></li>
+    <li><a href="#">Monthly Lessons</a></li>
     <li><a href="#">Activities</a></li>
     <li><a href="#">Contact</a></li>
     <li><a href="#">Join</a></li>
@@ -146,14 +153,21 @@
     <div class="pure-u-1 pure-u-md-1-3">
       <div class="c-1-1">
         <div class="bn-h1"></div>
-        <div class="ue-h1">Upcoming Event</div>
+        <div class="ue-h1 G-H1">Upcoming Event</div>
         <div class="ue-img"><img src="res/img/ue1.jpg" class="pure-img" /></div>
-        <div class="ue-h2"></div>
-        <div class="re-list">
-          <div class="re-h1"></div>
-          <div class="re-h2"></div>
+        <div class="ue-h2">
+        <p>Build Strong Relationships</p>
+        <p>Mufti Hussain Kamani</p>
+        <p>Nov. 30th Sunday</p>
+        <p>After Magrib (4:25PM)</p>
         </div>
-        
+        <div class="G-HR1"></div>
+        <div class="re-h1 G-H1">Recent Events</div>
+        <div class="re-list">
+          <div class="re-h2"></div>
+          <div class="re-h3"></div>
+        </div>
+        <div class="G-HR1"></div>
       </div><!-- c-1-1 -->
     </div>
     
@@ -162,9 +176,10 @@
           
         <div id="ss_container">
           <img id="ss_img0" src="res/img/ss/ss1.jpg" class="pure-img" />
+          <div id="ss_caption"></div>
         </div>           
-          
-        <div class="anct-h1">Announcements</div>
+        <div class="G-HR1"></div>
+        <div class="anct-h1 G-H1">Announcements</div>
         <div class="anct-list">
 <div class="anct-h2">Maintaining a Muslim Identity: Workshop By Sh. Hisham Al-Qaisi</div>
 <div class="anct-h3">Assalamu Alaikum, We have another important event coming up this Friday, Nov 14th....</div>
@@ -175,6 +190,9 @@
 <div class="anct-h2">Mufti Kamani's Talk</div>
 <div class="anct-h3">We are Alhamdulillah very excited to inform you that on Friday Oct 17, Mufti Hussai...   </div>    
         </div>
+        <div class="G-HR1"></div>
+        <div class="G-JMP">Read more</div>
+        <div class="G-HR1"></div>
       </div><!-- c-1-2 -->
     </div>
     
@@ -185,11 +203,12 @@ The Youth Program aims to create a medium that will allow our youth to balance t
 of today's environment. 
         </div>
         <div class="abt-h2">
-The program was intiated by a group of parents, and had its humble beginnings in the Spring of 2011 in the 
+The program was started by a group of parents, and had its humble beginnings in the Spring of 2011 in the 
 home of one of the parents, and Alhamdulillah in November 2011 moved into it's current location 
-at Masjid AlHuda, where it now benefits many Junior High and High School youth from our community.
+at Masjid Al-Huda, where it now benefits many Junior High and High School youth from our community.
         </div>
-        <div class="abt-h3">Objectives of the program:</div>
+        <div class="G-HR1"></div>
+        <div class="abt-h3 G-H1">Objectives of the program:</div>
         <div class="abt-list">
           <ul>
             <li>Gain practical knowledge of Islam from a qualified teacher in a fun environment.</li>
@@ -203,7 +222,7 @@ at Masjid AlHuda, where it now benefits many Junior High and High School youth f
             <li>Instructor for girls : Sister Sabaahath Latifi</li>
           </ul>    
         </div>
-        
+        <div class="G-HR1"></div>
       </div><!-- c-1-3 -->
     </div> 
   </div><!-- r1 -->
@@ -215,9 +234,7 @@ at Masjid AlHuda, where it now benefits many Junior High and High School youth f
 
 <div id="ftr" class="pure-g">
   <div class="pure-u-1">
-    <div class="ftr-cont">
-    footer
-    </div><!-- ftr-cont -->
+    <div class="ftr-cont"><a href="#">HOME</a></div>
   </div>
 </div><!-- #ftr -->
 
