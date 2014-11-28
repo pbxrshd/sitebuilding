@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     div.snippet1 {background-color:beige;}
+     div.snippet2 {background-color:cornsilk;}
+    </style>
+    <script src="res/js/promise.min.js"></script>
+    <script>
+    function loader() {
+      var page = location.search.substr(location.search.indexOf('?') + 1);
+      if (page.length != 0) {
+        page = page + '.html';
+        console.log(' loader ' + page);
+        promise.get('/content/' + page).then(function(error, text, xhr) {
+            if (error) {
+                //alert('Error ' + xhr.status);
+                location.assign(location.pathname);
+                return;
+            }
+            //alert('got back ' + text);
+            document.getElementById('cont').innerHTML = text;
+        });  
+      }    
+    }
+    </script>
+    
+  </head>
+  <body>
+    <div id="cont"></div>
+    <hr />
+    <ul>
+      <li><a href="base.html">just base</a></li>
+      <li><a href="base.html?">just search</a></li>
+      <li><a href="base.html?linky1">link1</a></li>
+      <li><a href="base.html?linky2">link2</a></li>
+      <li><a href="base.html?linky3">link3</a></li>
+    </ul>
+    <hr />
+  
+    <script>loader();</script>
+  </body>
+</html>
