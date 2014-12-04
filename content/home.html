@@ -24,8 +24,8 @@
     <div class="pure-u-1 pure-u-md-1-3 ">
       <div class="c-1-2">
         <div id="ss_container">
-          <img id="ss_img0" src="res/img/ss/_ss_placeholder.png" class="pure-img" />
-          <div id="ss_caption"></div>
+          <img id="ss_img0" src="res/img/ss/_ss_placeholder.png" class="ss-img pure-img" />
+          <div id="ss_caption" class="ss-caption"></div>
         </div>           
         <div class="G-HR1"></div>
         <div class="anct-h1 G-H1">Announcements</div>
@@ -87,105 +87,46 @@ at Masjid Al-Huda, where it now benefits many Junior High and High School youth 
   </div>
   <script>
     'use strict';
-    var Slider = (function(imgId){
-      
-      function run() {
-        $ref(imgId).src = 'res/img/ss/restoration1.jpg';
-      }
-      
-      return {run : run};
-    })('ss_img0');
     
-    
-    Slider.run();
-    /*
-    var ss_index = 0;
-    var ss_coll = [
-['res/img/ss/bake_sale0.jpg','Our 2013 Bake Sale'],
-['res/img/ss/baskesale1.jpg','Cookies for the 2014 Bake Sale'],
-['res/img/ss/Ilm_oasis_1.JPG','Our students at the Ilm Oasis'],
-['res/img/ss/mwl_speech1.JPG','Mawlana Kaamil speaking at the Family Dinner Event'],
-['res/img/ss/restoration2.jpg','Dupage County Forest Preserve Restoration Day'],
-['res/img/ss/restoration3.jpg','Dupage County Forest Preserve Restoration Day'],
-['res/img/ss/restoration5.jpg','Dupage County Forest Preserve Restoration Day'],
-['res/img/ss/restoration1.jpg','The Restoration Day after party at Italian Express'],
-['res/img/ss/football1.jpg','After school football with Mawlana Asif'],
-['res/img/ss/sledding1.JPG','Winter activities - Sledding Event at Mienecke'],
-['res/img/ss/Sledding_2.JPG','Winter activities - Sledding Event at Mienecke'],
-['res/img/ss/Sledding_3.JPG','Winter activities - Sledding Event at Mienecke']
+    var SLIDER_IMAGES = [
+["res/img/ss/bake_sale0.jpg","Our 2013 Bake Sale"],
+["res/img/ss/baskesale1.jpg","Cookies for the 2014 Bake Sale"],
+["res/img/ss/Ilm_oasis_1.JPG","Our students at the Ilm Oasis"],
+["res/img/ss/mwl_speech1.JPG","Mawlana Kaamil speaking at the Family Dinner Event"],
+["res/img/ss/restoration2.jpg","Dupage County Forest Preserve Restoration Day"],
+["res/img/ss/restoration3.jpg","Dupage County Forest Preserve Restoration Day"],
+["res/img/ss/restoration5.jpg","Dupage County Forest Preserve Restoration Day"],
+["res/img/ss/restoration1.jpg","The Restoration Day after party at Italian Express"],
+["res/img/ss/football1.jpg","After school football with Mawlana Asif"],
+["res/img/ss/sledding1.JPG","Winter activities - Sledding Event at Mienecke"],
+["res/img/ss/Sledding_2.JPG","Winter activities - Sledding Event at Mienecke"],
+["res/img/ss/Sledding_3.JPG","Winter activities - Sledding Event at Mienecke"]
     ];
-    var T = 0;
-    var ss;
-    var img0; 
-    var ssCaption;
-    var FADE = 10; 
-    var DWELL = 50; // just show 
-    
-    function loader() {
-        var getView = function(path) {
-          return path.substr(path.indexOf('?') + 1);
-        };
-        // extract view from location
-        //var view = location.search.substr(location.search.indexOf('?') + 1);
-        var view = getView(location.search);
-        
-        if (view.length === 0) {
-          // on home page
-          //   fire up slide show
-          ss = document.getElementById('ss_container');
-          img0 = document.getElementById('ss_img0');       
-          ssCaption = document.getElementById('ss_caption'); 
-          window.setInterval(tick,80);
-        }
-        
-        if (view.length != 0) {
-          console.log(' loader ' + view);
-          promise.get('/content/' + view + '.html').then(function(error, text, xhr) {
-            if (error) { // do nothing, stay on current view
-                if (console) {
-                  console.log('could not get view ' + view + ' (' + xhr.status + ')');
-                }
-                return;
-            } else {
-                // successfully retrieved
-                document.getElementById('view').innerHTML = text; // replace current view content
-            }
-          });  
-        }
-    }
-  
-  function tick() {
-      if (T > (FADE + FADE + DWELL)) {
-          T = 0;
+
+    var Slider = (function(containerElementId, sliderImagesArray, fadeTimeMs, dwellTimeMs, tickTimeMs){
+      var ss_index = 0, tick_count = 0, ss_container_ref, img_ref, ss_caption_ref;
+      function tick() {
+          if (tick_count > (fadeTimeMs + fadeTimeMs + dwellTimeMs)) {tick_count = 0;}
+          tick_count++;      
+          if (tick_count <= fadeTimeMs) {ss_container_ref.style.opacity = (fadeTimeMs - tick_count)/10;}
+          if (tick_count === fadeTimeMs) { // swap
+              img_ref.src = sliderImagesArray[ss_index][0];
+              ss_caption_ref.innerText = sliderImagesArray[ss_index][1];
+              ss_index = ++ss_index % sliderImagesArray.length;
+          }
+          if (tick_count > fadeTimeMs && tick_count <= fadeTimeMs + fadeTimeMs){ss_container_ref.style.opacity = (tick_count - fadeTimeMs)/10;}
+          //if (tick_count > fadeTimeMs + fadeTimeMs) { } // dwell during this tick count portion
+      }         
+      function run() {
+        ss_container_ref = $ref(containerElementId);
+        img_ref = ss_container_ref.querySelector('img.ss-img');
+        ss_caption_ref = ss_container_ref.querySelector('div.ss-caption');         
+        window.setInterval(tick,tickTimeMs);
       }
-      T++;      
-      if (T <= FADE) { 
-          ss.style.opacity = (FADE - T)/10;
-      }
-      if (T === FADE) { // swap
-          img0.src = ss_coll[ss_index][0];
-          ssCaption.innerText = ss_coll[ss_index][1];
-          ss_index = ++ss_index % ss_coll.length;
-      }
-      if (T > FADE && T <= FADE + FADE){
-          ss.style.opacity = (T - FADE)/10;
-      }
-      if (T > FADE + FADE) { // dwell
-      }
-  }          
+      return {run : run};
+    })('ss_container',SLIDER_IMAGES,10,50,80); // Slider
     
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Slider.run(); // launch slideshow
+
   </script>
 </div>  
