@@ -14,9 +14,38 @@
     'use strict';
       function $ref(){return document.getElementById(arguments[0]);}
 
+      function getPage(pageName) {
+          promise.get('/content/' + pageName + '.html').then(function(error, text, xhr) {
+            if (error) { 
+              $ref('error').innerHTML = '<span title="' + view + ' ' + xhr.status + '">' + "We couldn't find the page you were looking for...</span>";
+              return;
+            } else { // successfully retrieved
+               $ref('ta1').value = text; // replace current view content
+               parseOut(text);
+            }
+          }); // promise.get        
+      }
+
+      var DOC;
+
+      function parseOut(html) {
+        var parser = new DOMParser();
+        DOC = parser.parseFromString(html, "text/html");
+        
+      }
+
     </script>
   </head>
 <body>
 <h1>admin page</h1>
+<div id="error"></div>
+
+<input type="text" id="page_name" value="our-teachers" /><button onclick="getPage($ref('page_name').value)">get page</button>
+<hr />
+
+<div id="editor"></div>
+<textarea id="ta1" rows="40" cols="100"></textarea>
+
+
 </body>
 </html>

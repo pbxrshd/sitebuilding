@@ -8,7 +8,23 @@ sitebuilding$ gen/admin.py
 Design notes:
 -------------
 all content is under content
-move deleted to deleted folder
+pages are under content/
+posts are under content/post
+
+move deleted to content/deleted 
+
+
+admin functions:
+ - get returns admin page
+ - given a page name, 
+   - retrieve the page
+   - parse out h1, h2 into text boxes, p into textarea
+   - within p, support li, hrefs, img, bold, italic 
+   - add h2, p
+   - convert to html
+   - upload to save
+
+
 tafakur.ttf was the font used to generate the logo
 
 
