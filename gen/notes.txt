@@ -1,0 +1,22 @@
+
+gen notes:
+------------
+start admin.py from the top level directory and not from the gen directory (so that it can ge access to the other folders)
+sitebuilding$ gen/admin.py
+
+
+Design notes:
+-------------
+all content is under content
+move deleted to deleted folder
+tafakur.ttf was the font used to generate the logo
+
+
+
+    
+to alias and run python from command line, add this entry in .bashrc
+
+httpserver() { python2.7 ~/pathTo/admin.py ${1:-8000} ;}
+
+now can invoke $ httpserver
+or $ httpserver 60660 # to override default port 8000

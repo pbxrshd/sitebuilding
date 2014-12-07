@@ -57,8 +57,8 @@
 
       div.view h1 {font-size:1.6em;font-weight:normal;letter-spacing:2px;color:teal;}
       div.view h2 {font-size:1.2em;font-weight:normal;letter-spacing:2px;color:#990000;}
-      div.view p,ul {font-size:0.8em;letter-spacing:1.2px;line-height:1.4;color:#303030;}
-      div.view p {text-indent:24px;}
+      div.view p {font-size:0.8em;letter-spacing:1.2px;line-height:1.4;text-indent:24px;color:#303030;}
+      div.view ul {font-size:0.8rem;letter-spacing:1.2px;line-height:1.4;color:#303030;}
 
       div#ftr {font-size:0.8em;font-weight:bold;text-align:center;margin:28px 0 18px 0;background-color:#91d1c4;border-radius:4px;}
       div.ftr-cont a {text-decoration:none;color:#990000;}
@@ -73,12 +73,15 @@
       var Loader = (function(){
         var HOME_VIEW = 'home';
         var MENU_SELECTED_STYLE = 'pure-menu-selected';
-        var getView = function(path) {
-          return path.substr(path.indexOf('?') + 1);
+        var getView = function(name) {
+          return name.substr(name.indexOf('?') + 1);
         };
         function load() {
           var view = getView(location.search); // extract view from location
           view = (!view || view.length === 0) ? HOME_VIEW : view; // fallthrough to home page
+          if (view.charAt(view.length-1)==='/') { // strip trailing /, if present
+            view = view.substr(0,view.length-1);
+          }
           // attempt to retrieve view
           promise.get('/content/' + view + '.html').then(function(error, text, xhr) {
             if (error) { 
@@ -120,7 +123,7 @@
 
 <div id="hdr" class="pure-g">
   <div class="pure-u-1 pure-u-md-3-5">
-    <div class="hdr-h1"><a href="?"><img src="res/img/alhuda-logo1.png" class="pure-img" alt="Al-Huda Youth Program" title="Click to go to the Al-Huda Youth Program home page" /></a></div>
+    <div class="hdr-h1"><a href="?home"><img src="res/img/alhuda-logo1.png" class="pure-img" alt="Al-Huda Youth Program" title="Click to go to the Al-Huda Youth Program home page" /></a></div>
     <div class="hdr-h2">Youth Programs at Masjid Al-Huda, for boys 9 and older and girls 12 and older</div>
   </div>
   <div class="pure-u-1 pure-u-md-2-5">
@@ -154,7 +157,7 @@
 
 <div id="ftr" class="pure-g">
   <div class="pure-u-1">
-    <div class="ftr-cont"><a href="?">HOME</a></div>
+    <div class="ftr-cont"><a href="?home">HOME</a></div>
   </div>
 </div><!-- #ftr -->
 
